@@ -16,3 +16,4 @@ Since the goal is to determine what running-backs will finish with the best rank
 ![Correlation of Standard Season RB Rank & Some Statistic](https://github.com/SpeeJRodgers2/PortfolioProjects/blob/main/Historical_Fantasy_RB_Analysis/RB_Charts/Correlation%20of%20Standard%20Season%20RB%20Rank%20&%20Some%20Statistic.png?raw=true)
 ![Correlation of PPR Season RB Rank & Some Statistic](https://github.com/SpeeJRodgers2/PortfolioProjects/blob/main/Historical_Fantasy_RB_Analysis/RB_Charts/Correlation%20of%20PPR%20Season%20RB%20Rank%20&%20Some%20Statistic.png?raw=true)
 
+I used two different processes to analyze the key statistcs that were just pinpointed. The first process involved the COUNTIFS function on Google Sheets. I used it
