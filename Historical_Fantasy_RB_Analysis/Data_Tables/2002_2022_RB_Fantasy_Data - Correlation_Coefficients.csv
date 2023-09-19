@@ -1,0 +1,8 @@
+Standard Rank,touches,FP_per_touch,,yards_per_touch,total_TDs,TDs_per_touch,carries,recpetions,,,,YPC,YPR,,snap_pct
+Correlation,0.8611142272,0.1043294165,,0.1207516725,0.7581151479,0.09960680332,0.8357430304,0.7139812909,,,,0.2858051456,0.1330145425,,0.8208856644
+,,,,,,,,,,,,,,,
+PPR Rank,touches,FP_per_touch,,yards_per_touch,total_TDs,TDs_per_touch,carries,recpetions,,,,YPC,YPR,,snap_pct
+Correlation,0.8557272637,0.09641372373,,0.1339587007,0.7454936647,0.08210591501,0.8205839256,0.7580295574,,,,0.2668445126,0.1227082909,,0.8275629599
+,,,,,,,,,,,,,,,
+Games,touches,height,weight,age,,,,,,,,,,,
+Correlation,0.7511296674,0.007676327379,0.03283030109,0.07608699059,,,,,,,,,,,
