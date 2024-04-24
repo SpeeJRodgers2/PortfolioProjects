@@ -27,7 +27,6 @@ The relationship between weekly sales and fuel price should be pretty straightfo
 
 ![Weekly Sales Vs. Unemployment Relationships](https://github.com/SpeeJRodgers2/PortfolioProjects/blob/main/Walmart_Store_Sales_Analysis/Charts/Weekly%20Sales%20Vs.%20Unemployment%20Relationships.png)
 
-Analysis
+Lastly, let's go over the relationship between weekly sales and unemployment. It should be pretty straightforward... right? Actually, YES! This relationship had the second strongest correlation on the very first chart, and this chart above definitely confirms that! The correlation is negative, so they should have an inverse relationship. This is clearly shown by looking at the red and yellow columns. When weekly sales are above average, the unemployment rate is usually below average (~53% of the time). When weekly sales are below average, the unemployment rate is usually above average (~59% of the time). People don't have money to spend when they don't have a job.
 
-Conclusion Stuff
-Further analysis could be done by looking at the direction of these numbers instead of whether they are above or below their averages to find more insights. 
+I learned a good bit from this project, and I hope you can take something away from my data analysis as-well. Further analysis could be done by looking at the direction of these numbers instead of whether they are above or below their averages to find more insights. Feel free to try obseerving those insights with this data. I'll be moving onto to my next project. Thank you so much for reading!
