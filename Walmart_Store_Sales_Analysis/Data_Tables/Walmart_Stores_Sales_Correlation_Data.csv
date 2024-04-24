@@ -1,0 +1,26 @@
+,Correlation w/ Sales,,Correlation w/ CPI,,,,,,,
+Temperature,-0.103740954,Fuel Price,0.7554318557,,Sales Up,Sales Up Non-Holiday,Temp Up,Fuel Up,CPI Up,Unemployment Up
+Fuel Price,-0.04198063505,,,,2627,2381,3374,3645,3093,3478
+CPI,0.01879271062,,,,Sales Down,Sales Down Non-Holiday,Temp Down,Fuel Down ,CPI Down,Unemployment Down
+Unemployment,-0.05009543834,,,,3808,3604,3061,2790,3342,2957
+,,,,,,,,,,
+,COUNTS,COUNTS Excluding Holidays,% w/ holidays,% w/o holidays,,,,,,
+Sales up & Temp up,1364,1303,51.92%,54.72%,,,,,,
+Sales up & Temp down,1263,1078,48.08%,45.28%,,,,,,
+Sales down & Temp up,2010,1936,52.78%,53.72%,,,,,,
+Sales down & Temp down,1798,1668,47.22%,46.28%,,,,,,
+,,,% w/ holidays,% w/o holidays,,,,,,
+Sales up & Fuel Price up,1527,1406,58.13%,59.05%,,,,,,
+Sales up & Fuel Price down,1100,975,41.87%,40.95%,,,,,,
+Sales down & Fuel Price up,2118,2067,55.62%,57.35%,,,,,,
+Sales down & Fuel Price down,1690,1537,44.38%,42.65%,,,,,,
+,,,% w/ holidays,% w/o holidays,,,,,,
+Sales up & CPI up,1410,1276,53.67%,53.59%,,,,,,
+Sales up & CPI down,1217,1105,46.33%,46.41%,,,,,,
+Sales down & CPI up,1683,1609,44.20%,44.64%,,,,,,
+Sales down & CPI down,2125,1995,55.80%,55.36%,,,,,,
+,,,% w/ holidays,% w/o holidays,,,,,,
+Sales up & Unemployment up,1237,1114,47.09%,46.79%,,,,,,
+Sales up & Unemployment down,1390,1267,52.91%,53.21%,,,,,,
+Sales down & Unemployment up,2241,2109,58.85%,58.52%,,,,,,
+Sales down & Unemployment down,1567,1495,41.15%,41.48%,,,,,,
