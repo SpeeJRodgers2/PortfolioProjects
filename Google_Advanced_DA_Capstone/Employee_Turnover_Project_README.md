@@ -41,6 +41,10 @@ insert plot
 
 We see here that longer tenured employees aren't disproportionatley comprised of higher-paid salaries.
 
+Now, let's check if any specific departments have more employee turnover than others.
 
+insert plot
 
-First, I checked the percentage of employees that stayed vs. left since this is dependent statistic that we'll be modeling to predict. We see that about 83% of employees stayed while about 17% left. Next
+Nothing really stands out in this plot.
+
+After using visualizations to get familiar with the data, it's time to make some models to predict the target variable, employees staying or leaving. First, I checked the percentage of employees that stayed vs. left because that's the dependent statistic that we'll be trying to predict. We see that about 83% of employees stayed while about 17% left. This split is lopsided, but it's still acceptable. I tried a logistic regression classification model first, so some columns of data needed to be encoded for the model to work. The salary column, containing low, medium, and high, was encoded using the .set_categories() method. This way the natural order of the salary column is kept. This column is an ordinal categorical column meaning the order of these categories has intrinsic value. The rest of the categorical columns could be encoded using the .get_dummies method because they aren't ordinal categorical columns, their order doesn't have instrinsic value. 
