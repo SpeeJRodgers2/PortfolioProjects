@@ -51,7 +51,7 @@ After using visualizations to get familiar with the data, it's time to make some
 
 insert heatmap
 
-None of these indepednent columns break the assumption by being too highly correlated. Now let's remove outliers to help the model's performance. Using boxplots to look at each column of independent data, we see that the tenure column is the only one with outliers (shown below).
+None of these indepednent columns break the assumption by being too highly correlated. Now let's remove outliers to account for the model's "no extreme outliers assumption". Using boxplots to look at each column of independent data, we see that the tenure column is the only one with outliers (shown below).
 
 insert box plot
 
@@ -63,4 +63,6 @@ insert confusion matrix
 
 Here, we can see that the model has a problem with false negatives. This is very important because that means that the model is struggling to correctly predict employees that are leaving, which is the goal of this process. The recall, or the proportion of employees the model predicts would leave that actually left, was a measly 24%. This model is not useful at all, so let's try some other mo0dels.
 
+We'll try a decision tree classifier model now. This model has no assumptions regarding data distribution and handles collinearity very easily. The only thing to look out for is its succeptibility to overfitting. We will use GridSearchCV to optimize the model's perameters during training. After training and testing the model, we see that it performs MUCH better than the logistic regression model. We got precision of 95.5%, recall of 91.5%, F1 score of 93.4%, accuracy of 97.9%, and an AUC score of 97.4%. These are all inidcators of a strong model. 
 
+Since decision trees are succeptible to overfitting, let's try a random forest model as-well. These models do not have a problem with overfitting because of their ensemble learning approach. This means that they use many different decision trees in their prediction, so no one decision tree can overly influence the results and cause overfitiing of the training data. 
