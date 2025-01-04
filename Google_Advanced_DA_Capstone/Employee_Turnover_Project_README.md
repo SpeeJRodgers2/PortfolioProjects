@@ -47,4 +47,20 @@ insert plot
 
 Nothing really stands out in this plot.
 
-After using visualizations to get familiar with the data, it's time to make some models to predict the target variable, employees staying or leaving. First, I checked the percentage of employees that stayed vs. left because that's the dependent statistic that we'll be trying to predict. We see that about 83% of employees stayed while about 17% left. This split is lopsided, but it's still acceptable. I tried a logistic regression classification model first, so some columns of data needed to be encoded for the model to work. The salary column, containing low, medium, and high, was encoded using the .set_categories() method. This way the natural order of the salary column is kept. This column is an ordinal categorical column meaning the order of these categories has intrinsic value. The rest of the categorical columns could be encoded using the .get_dummies method because they aren't ordinal categorical columns, their order doesn't have instrinsic value. 
+After using visualizations to get familiar with the data, it's time to make some models to predict the target variable, employees staying or leaving. First, I checked the percentage of employees that stayed vs. left because that's the dependent statistic that we'll be trying to predict. We see that about 83% of employees stayed while about 17% left. This split is lopsided, but it's still acceptable. I tried a logistic regression classification model first, so some columns of data needed to be encoded for the model to work. The salary column, containing low, medium, and high, was encoded using the .set_categories() method. This way the natural order of the salary column is kept. This column is an ordinal categorical column meaning the order of these categories has intrinsic value. The rest of the categorical columns could be encoded using the .get_dummies method because they aren't ordinal categorical columns, their order doesn't have instrinsic value. Now, I want to check the correlation of the other independent data columns with eachother. This is to make sure the "no multicollinearity assumption" is met. Here is the correlation heat map I made using seaborn below.
+
+insert heatmap
+
+None of these indepednent columns break the assumption by being too highly correlated. Now let's remove outliers to help the model's performance. Using boxplots to look at each column of independent data, we see that the tenure column is the only one with outliers (shown below).
+
+insert box plot
+
+The upper and lower limits we'll use to seperate he outliers in the tenure column from the data we'll keep are calculated. First, we need to get the IQR or interquartile range by subtracting the 25th percentile of the tenure column from the 75th percentile. Then we get the upper limit by adding the 75th percentile with 1.5 times the IQR. Similarly, we get the lower limit by subtracting 1.5 times the IQR from the 25th percentile. We use the upper and lower limits to pull the rows of data inbewteen those values to use for the model. 
+
+Now the last bit of data prep before putting it into the model is splitting the data into training and testing sets. This way we can test the model on data it did not see in training. Finally, I trained and tested the model. Below is a confusion matrix showing the results.
+
+insert confusion matrix
+
+Here, we can see that the model has a problem with false negatives. This is very important because that means that the model is struggling to correctly predict employees that are leaving, which is the goal of this process. The recall, or the proportion of employees the model predicts would leave that actually left, was a measly 24%. This model is not useful at all, so let's try some other mo0dels.
+
+
