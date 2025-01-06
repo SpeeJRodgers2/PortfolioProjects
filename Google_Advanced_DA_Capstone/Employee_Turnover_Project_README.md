@@ -37,29 +37,29 @@ The first thing I notice looking at these plots is that no one at the company ha
 
 We can check if employees that stay longer stay because they are getting a higher salary.
 
-insert plot
+![Number of Employees Categorized by Salary vs. Tenure](https://github.com/SpeeJRodgers2/PortfolioProjects/blob/main/Google_Advanced_DA_Capstone/Visualizations/Salary_vs_Tenure_Histograms.png)
 
 We see here that longer tenured employees aren't disproportionatley comprised of higher-paid salaries.
 
 Now, let's check if any specific departments have more employee turnover than others.
 
-insert plot
+![Employee Turnover vs. Department](https://github.com/SpeeJRodgers2/PortfolioProjects/blob/main/Google_Advanced_DA_Capstone/Visualizations/Employee_TO_by_Department.png)
 
 Nothing really stands out in this plot.
 
 After using visualizations to get familiar with the data, it's time to make some models to predict the target variable, employees staying or leaving. First, I checked the percentage of employees that stayed vs. left because that's the dependent statistic that we'll be trying to predict. We see that about 83% of employees stayed while about 17% left. This split is lopsided, but it's still acceptable. I tried a logistic regression classification model first, so some columns of data needed to be encoded for the model to work. The salary column, containing low, medium, and high, was encoded using the .set_categories() method. This way the natural order of the salary column is kept. This column is an ordinal categorical column meaning the order of these categories has intrinsic value. The rest of the categorical columns could be encoded using the .get_dummies method because they aren't ordinal categorical columns, their order doesn't have instrinsic value. Now, I want to check the correlation of the other independent data columns with eachother. This is to make sure the "no multicollinearity assumption" is met. Here is the correlation heat map I made using seaborn below.
 
-insert heatmap
+![Independent Variables Correlation Heatmap](https://github.com/SpeeJRodgers2/PortfolioProjects/blob/main/Google_Advanced_DA_Capstone/Visualizations/Correlation_Heatmap.png)
 
 None of these indepednent columns break the assumption by being too highly correlated. Now let's remove outliers to account for the model's "no extreme outliers assumption". Using boxplots to look at each column of independent data, we see that the tenure column is the only one with outliers (shown below).
 
-insert box plot
+![Tenure Boxplot](https://github.com/SpeeJRodgers2/PortfolioProjects/blob/main/Google_Advanced_DA_Capstone/Visualizations/Tenure_Boxplot.png)
 
 The upper and lower limits we'll use to seperate he outliers in the tenure column from the data we'll keep are calculated. First, we need to get the IQR or interquartile range by subtracting the 25th percentile of the tenure column from the 75th percentile. Then we get the upper limit by adding the 75th percentile with 1.5 times the IQR. Similarly, we get the lower limit by subtracting 1.5 times the IQR from the 25th percentile. We use the upper and lower limits to pull the rows of data inbewteen those values to use for the model. 
 
 Now the last bit of data prep before putting it into the model is splitting the data into training and testing sets. This way we can test the model on data it did not see in training. Finally, I trained and tested the model. Below is a confusion matrix showing the results.
 
-insert confusion matrix
+![Logistic Regression Classifier Confusion Matrix](https://github.com/SpeeJRodgers2/PortfolioProjects/blob/main/Google_Advanced_DA_Capstone/Visualizations/Logistic_Regression_Classifier_Confusion_Matrix.png)
 
 Here, we can see that the model has a problem with false negatives. This is very important because that means that the model is struggling to correctly predict employees that are leaving, which is the goal of this process. The recall, or the proportion of employees the model predicts would leave that actually left, was a measly 24%. This model is not useful at all, so let's try some other mo0dels.
 
@@ -71,19 +71,19 @@ In these preliminary tests, data leakage was ignored. Data leakage is using data
 
 Using this newly engineered data with reduced leakage, we trained another decision tree and random forest model using the same parameters that were used previously. Both the decision tree and random forest model's performed worse than before the data engineering and dropping of potential data leaking columns. This makes some sense since both of those columns, satisfaction_level was an extremely predictive statistic. We see this below by charting the feature importances of the best estimating models by using the .best_estimator_ and .feature_importances_ methods.
 
-insert decision tree 1 feature importances
-
-insert random forest 1 feature importances
+![Decision Tree 1 Feature Importances](https://github.com/SpeeJRodgers2/PortfolioProjects/blob/main/Google_Advanced_DA_Capstone/Visualizations/Decision_Tree_1_Feature_Importances_Chart.png)
+![Random Forest 1 Feature Importances](https://github.com/SpeeJRodgers2/PortfolioProjects/blob/main/Google_Advanced_DA_Capstone/Visualizations/Random_Forest_1_Feature_Importances_Chart.png)
 
 Regardless, it's better to know how the model's will perform during deployment rather than deploying them and being surprised by the difference in results! The decision tree's scores were: precision - 85.7%, recall - 90.4%, F1 score - 87.9%, accuracy - 95.9%, and AUC score - 95.9%. The random forest model's scores were: precision 86.7%, recall - 87.9%, F1 score - 87.2%, accuracy - 95.7%, and AUC score - 96.5%. Let's look at the random forest model's confusion matrix to visualize how strong of a model it is.
 
-insert confusion matrix
+![Random Forest 2 Confusion Matrix](https://github.com/SpeeJRodgers2/PortfolioProjects/blob/main/Google_Advanced_DA_Capstone/Visualizations/Random_Forest_2_Confusion_Matrix.png)
 
 This is a huge improvement compared to the first logistic regression model that we started with that had 487 total incorrect predictions. This model only has 115 incorrect predictions. This model does have more false negatives than false postives though. This is useful to keep in mind since that means it's predicting more employees being at risk of leaving or being let go than is actually true. 
 
 Now let's look at the most important features of these new models. 
 
-insert featue importance charts for the second models
+![Decision Tree 2 Feature Importances](https://github.com/SpeeJRodgers2/PortfolioProjects/blob/main/Google_Advanced_DA_Capstone/Visualizations/Decision_Tree_2_Feature_Importances_Chart.png)
+![Random Forest 2 Feature Importances](https://github.com/SpeeJRodgers2/PortfolioProjects/blob/main/Google_Advanced_DA_Capstone/Visualizations/Random_Forest_2_Feature_Importances_Chart.png)
 
 We see that our feature engineered overworked column is actually slightly more predictive than the average_monthly_hours column was!
 
